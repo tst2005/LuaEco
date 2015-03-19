@@ -11,23 +11,24 @@ There are some "combo" modules, which are available as one library, but they imp
 
 So my proposition is to implement 4 functions:
 
-require_url(uri) - which returns a module from any location/scheme (like luarock://dkjson or http://www.example.com/module.lua)
+`require_url(uri)` - which returns a module from any location/scheme (like luarock://dkjson or http://www.example.com/module.lua)
 
-require_api(apiname) - which returns a module implementing required API
+`require_api(apiname)` - which returns a module implementing required API
 
-find_api_providers(apiname) - which returns a table of all known modules implementing given api
+`find_api_providers(apiname)` - which returns a table of all known modules implementing given api
 
-choose_module(TModules) - which returns at most one module, based on "local preferences"
+`choose_module(TModules)` - which returns at most one module, based on "local preferences"
 
 The last two functions could be overwritten by the user/site admin, so the source of API definitions and modules list could be changed (from "official site" to "alternative community site" or "local files"), and the algorithm for choosing the module from a list of available options could be customized.
 
 Then there are 2 sources of data APITREE and MODULES.
 
 APITREE is a tree of "official" API definitions, i.e. for each entry there is a list of functions (their names and arguments) and unit tests for checking implementations. That would be based on libraries from other languages, like:
-http://www.ruby-doc.org/stdlib-2.0.0/packages.html
-http://docs.oracle.com/javase/6/docs/api/
-http://perldoc.perl.org/perlmodlib.html#Standard-Modules
-etc.
+ * [Ruby](http://www.ruby-doc.org/stdlib-2.0.0/packages.html)
+ * [Java](http://docs.oracle.com/javase/6/docs/api/)
+ * [Perl](http://perldoc.perl.org/perlmodlib.html#Standard-Modules)
+ * [Python](https://docs.python.org/2/library/]
+ * etc.
 
 MODULES would list each module, with following data:
 - module name
